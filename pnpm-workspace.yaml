@@ -1,0 +1,10 @@
+packages:
+    - 'apps/*'
+    - '!apps/api-sync-worker'
+    - '!apps/web-canvas'
+    - 'packages/*'
+allowBuilds:
+    esbuild: true
+    msw: true
+    sharp: true
+    unrs-resolver: true

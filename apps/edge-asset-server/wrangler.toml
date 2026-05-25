@@ -1,0 +1,11 @@
+name = "cpm-edge-asset-server"
+main = "src/index.ts"
+compatibility_date = "2024-03-01"
+
+[vars]
+NODE_ENV = "production"
+PORT = "3002"
+
+# Production binds and routing rules mapped to Cloudflare Isolates
+[site]
+bucket = "./dist"

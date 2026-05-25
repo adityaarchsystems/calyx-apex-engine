@@ -1,0 +1,2 @@
+"import React from 'react';\nimport { Handle, Position } from '@xyflow/react';\nimport { useCanvasState } from '../../context/CanvasContext';\nimport { FlavorTokens } from '../../flavors';\n\nexport const CustomHeaderNode = ({ data }: any) => {\n  const { 
+<truncated 3951 bytes>

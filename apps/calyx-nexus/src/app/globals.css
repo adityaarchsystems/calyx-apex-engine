@@ -1,0 +1,417 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ══════════════════════════════════════════════════════════
+   CALYX NEXUS — Design Token Layer
+   Standard: Space-Industrial Minimalism
+   Geometry: Neo-Brutalist (0px radius — Token-Engineered)
+   Grid: 8pt Swiss International
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+    --calyx-accent: #a855f7;
+    --calyx-accent-soft: rgba(168, 85, 247, 0.1);
+    --calyx-accent-glow: rgba(168, 85, 247, 0.3);
+
+    /* Tier Colors */
+    --tier-a: #10b981;
+    --tier-b: #a855f7;
+    --tier-c: #eab308;
+    --tier-d: #ef4444;
+}
+
+.system-stress {
+    --calyx-accent: #f59e0b; /* Amber-500 */
+    --calyx-accent-soft: rgba(245, 158, 11, 0.1);
+    --calyx-accent-glow: rgba(245, 158, 11, 0.3);
+}
+
+.system-lockdown {
+    --calyx-accent: #475569; /* Slate-600 */
+    --calyx-accent-soft: rgba(71, 85, 105, 0.1);
+    --calyx-accent-glow: rgba(71, 85, 105, 0.2);
+    filter: grayscale(1);
+    opacity: 0.8;
+}
+
+@theme inline {
+    /* ── Core Palette ── */
+    --color-calyx-obsidian: #0b0a14;
+    --color-calyx-platinum: #f8fafc;
+    --color-calyx-rose: #bfafaf;
+    --color-calyx-turquoise: var(--calyx-accent);
+    --color-calyx-slate: #94a3b8;
+    --color-calyx-bg: #0b0a14;
+
+    /* ── Surface Hierarchy ── */
+    --color-calyx-surface: #0d0c18;
+    --color-calyx-surface-elevated: #131224;
+    --color-calyx-border: #1e1b30;
+    --color-calyx-border-hover: var(--calyx-accent);
+
+    /* ── Typography ── */
+    --color-calyx-text-primary: #f8fafc;
+    --color-calyx-text-secondary: #94a3b8;
+    --color-calyx-text-muted: #64748b;
+
+    /* ── Font Stack ── */
+    --font-sans: var(--font-inter);
+    --font-mono: var(--font-geist-mono);
+    --font-heading: var(--font-inter);
+
+    /* ── 8pt Grid Unit ── */
+    --spacing-grid: 8px;
+
+    /* ── shadcn Semantic Color Bindings ── */
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    /* ── Zero Radius (nuclear override for shadcn) ── */
+    --radius-sm: 0px;
+    --radius-md: 0px;
+    --radius-lg: 0px;
+    --radius-xl: 0px;
+    --radius-2xl: 0px;
+    --radius-3xl: 0px;
+    --radius-4xl: 0px;
+}
+
+
+/* ── Base Layer ── */
+html {
+    background-color: #0b0a14;
+    color-scheme: dark;
+}
+
+body {
+    background-color: #0b0a14 !important;
+    color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+/* ── Selection Styling ── */
+::selection {
+    background-color: rgba(168, 85, 247, 0.3);
+    color: var(--color-calyx-platinum);
+}
+
+/* ── Scrollbar (Webkit) ── */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-calyx-obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-calyx-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--calyx-accent);
+}
+
+/* ── shadcn Semantic Tokens (Calyx Dark Mode Override) ── */
+:root {
+    --background: #0b0a14;
+    --foreground: #f8fafc;
+    --card: #0d0c18;
+    --card-foreground: #f8fafc;
+    --popover: #0d0c18;
+    --popover-foreground: #f8fafc;
+    --primary: #a855f7;
+    --primary-foreground: #0b0a14;
+    --secondary: #131224;
+    --secondary-foreground: #f8fafc;
+    --muted: #131224;
+    --muted-foreground: #94a3b8;
+    --accent: #10b981;
+    --accent-foreground: #f8fafc;
+    --destructive: #ef4444;
+    --border: #1e1b30;
+    --input: #1e1b30;
+    --ring: #a855f7;
+    --chart-1: #a855f7;
+    --chart-2: #10b981;
+    --chart-3: #8b5cf6;
+    --chart-4: #34d399;
+    --chart-5: #1e1b30;
+    --radius: 0px;
+    --sidebar: #0b0a14;
+    --sidebar-foreground: #f8fafc;
+    --sidebar-primary: #a855f7;
+    --sidebar-primary-foreground: #0b0a14;
+    --sidebar-accent: #0d0c18;
+    --sidebar-accent-foreground: #f8fafc;
+    --sidebar-border: #1e1b30;
+    --sidebar-ring: #a855f7;
+}
+
+.dark {
+    --background: #0b0a14;
+    --foreground: #f8fafc;
+    --card: #0d0c18;
+    --card-foreground: #f8fafc;
+    --popover: #0d0c18;
+    --popover-foreground: #f8fafc;
+    --primary: #a855f7;
+    --primary-foreground: #0b0a14;
+    --secondary: #131224;
+    --secondary-foreground: #f8fafc;
+    --muted: #131224;
+    --muted-foreground: #94a3b8;
+    --accent: #10b981;
+    --accent-foreground: #f8fafc;
+    --destructive: #ef4444;
+    --border: #1e1b30;
+    --input: #1e1b30;
+    --ring: #a855f7;
+    --chart-1: #a855f7;
+    --chart-2: #10b981;
+    --chart-3: #8b5cf6;
+    --chart-4: #34d399;
+    --chart-5: #1e1b30;
+    --sidebar: #0b0a14;
+    --sidebar-foreground: #f8fafc;
+    --sidebar-primary: #a855f7;
+    --sidebar-primary-foreground: #0b0a14;
+    --sidebar-accent: #0d0c18;
+    --sidebar-accent-foreground: #f8fafc;
+    --sidebar-border: #1e1b30;
+    --sidebar-ring: #a855f7;
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    html {
+        @apply font-sans;
+    }
+}
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-calyx-border);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--calyx-accent);
+  }
+
+    .anodic-obsidian {
+        background: radial-gradient(circle at top, #131224 0%, #0b0a14 100%);
+    }
+}
+
+/* ── Vibe Command Layer (Reactive States) ── */
+.system-stress .animate-pulse,
+.system-stress .animate-ping {
+  animation-duration: 0.5s !important;
+}
+
+.system-lockdown .sensitive-data {
+  filter: blur(5px) grayscale(1) !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+.scanner-line {
+  border-bottom: 1px solid var(--calyx-accent);
+  box-shadow: 0 4px 20px -2px var(--calyx-accent);
+  filter: saturate(0.7);
+  width: 100%;
+  position: fixed;
+  top: -1px;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  animation: scan 3s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes radar-sweep {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse-highlight {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    10%, 30% {
+        transform: scale(1.3);
+        filter: brightness(1.5);
+        box-shadow: 0 0 12px #22c55e;
+    }
+    40% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -90%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -100%) scale(1);
+    }
+}
+
+/* Symmetrical Grid Card Core Hover and GPU-acceleration styling */
+.calyx-module-card {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.calyx-module-card:hover {
+    transform: scale(1.01) translate3d(0, 0, 0);
+    border-color: rgba(168, 85, 247, 0.4) !important;
+}
+
+.calyx-module-card:active {
+    transform: scale(0.99) translate3d(0, 0, 0);
+}
+
+/* Enforce Click Kinetic Depress States on all core module buttons */
+.calyx-module-card button,
+.calyx-module-card a[class*="border-neutral-800"],
+.calyx-module-card button[class*="border-neutral-800"] {
+    transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.calyx-module-card button:active,
+.calyx-module-card a[class*="border-neutral-800"]:active,
+.calyx-module-card button[class*="border-neutral-800"]:active {
+    transform: scale(0.97) !important;
+}
+
+/* Elevate Control Card Visual Density & Radar Lines Contrast */
+.absolute.inset-0.opacity-25 {
+    opacity: 0.35 !important;
+}
+
+.group:hover .absolute.inset-0.opacity-25 {
+    opacity: 0.55 !important;
+}
+
+svg circle[stroke*="168, 85, 247"] {
+    stroke: rgba(168, 85, 247, 0.35) !important;
+    stroke-width: 1.25px !important;
+}
+
+svg line[stroke*="168, 85, 247"] {
+    stroke: rgba(168, 85, 247, 0.75) !important;
+    stroke-width: 2px !important;
+}
+
+.calyx-module-card {
+    background-color: rgba(9, 8, 18, 0.75) !important;
+    border-color: rgba(139, 92, 246, 0.25) !important;
+}
+
+.calyx-module-card:hover {
+    background-color: rgba(9, 8, 18, 0.9) !important;
+    border-color: rgba(168, 85, 247, 0.5) !important;
+}
+
+/* Inject High-Contrast Bento Highlights */
+.calyx-bento-preview-cell {
+    background: rgba(168, 85, 247, 0.03);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.calyx-bento-preview-cell:hover {
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.15);
+}
+
+.react-flow__attribution {
+    display: none !important;
+}
+
+@keyframes waveMotion {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+.animate-wave {
+    animation: waveMotion 4s ease-in-out infinite;
+}
+
+@utility grid-rows-7 {
+    grid-template-rows: repeat(7, minmax(0, 1fr));
+}
